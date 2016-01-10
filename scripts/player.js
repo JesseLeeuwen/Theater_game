@@ -38,6 +38,7 @@ function PlayerEquipment( positions )
         if ( pos2 != undefined )
         {                        
             ctx.beginPath();
+            ctx.lineWidth=2;
             ctx.moveTo(pos1[0], -pos1[1]);
             ctx.lineTo(pos2[0], -pos2[1]);
             ctx.stroke();
