@@ -1,6 +1,6 @@
 function Movement(speed)
 {   
-    this.Init = function(object)    
+    this.Start = function(object)    
     {
         //object.scaleX = 0;
     };

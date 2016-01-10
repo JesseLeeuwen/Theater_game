@@ -68,7 +68,7 @@ function GameLoop()
 function Instantiate( sprite, x, y, centerX, centerY, scaleX, scaleY, rot, frames, components )
 {
     objects[objectCount] = new GameObject();
-    objects[objectCount].Init( sprite, x, y, centerX, centerY, scaleX, scaleY, rot, frames, components );     
+    objects[objectCount].Start( sprite, x, y, centerX, centerY, scaleX, scaleY, rot, frames, components );     
     objectCount++;  
 }
 

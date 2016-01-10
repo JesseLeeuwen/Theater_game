@@ -15,7 +15,7 @@ function GameObject()
     
     this.components = [];
        
-    this.Init = function( sprite, x, y, centerX, centerY, scaleX, scaleY, rot, frames, components )
+    this.Start = function( sprite, x, y, centerX, centerY, scaleX, scaleY, rot, frames, components )
     {
         this.x = x;
         this.y = y;
@@ -40,7 +40,7 @@ function GameObject()
         this.width = this.sprite.width / this.frames;    
         
         for ( var i = 0; i < this.components.length; ++i )
-            this.components[i].Init(this);           
+            this.components[i].Start(this);           
     };    
     
     this.Update = function( dt )
