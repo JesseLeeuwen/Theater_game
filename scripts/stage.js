@@ -22,6 +22,8 @@ function Stage()
     this.rail.src = "sprites/rail.png";
     this.curtain = new Image();
     this.curtain.src = "sprites/curtain.png";
+    this.speachbubble = new Image();
+    this.speachbubble.src = "sprites/tekstbalon.png";
 
     this.treeLeavesx = 0;
     this.treeLeavesy = 0;
@@ -107,6 +109,11 @@ function Stage()
         ctx.drawImage(this.ground, canvas.width/2 - this.ground.width/2, canvas.height*0.9 - this.ground.height/2);
         ctx.drawImage(this.rail, canvas.width/2 - this.rail.width/2, canvas.height - this.rail.height*0.6);
         ctx.drawImage(this.curtain, -this.curtain.width*0.3, 0);
+        ctx.save();
+        ctx.translate(canvas.width/2, canvas.height/2);
+        ctx.scale(1+Math.cos(this.time/40)*0.03, 1+Math.sin(this.time/70)*0.02);
+        ctx.drawImage(this.speachbubble, -this.speachbubble.width/2, -this.speachbubble.height/2);
+        ctx.restore();
         ctx.save();
         ctx.translate(canvas.width, 0);
         ctx.scale(-1, 1);
