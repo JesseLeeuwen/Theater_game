@@ -9,7 +9,6 @@ function PlayerEquipment( positions )
    
     this.Update = function(dt, object)
     {        
-        console.log(this.arm.ready);
     }
    
     this.Draw = function(ctx, object)   
