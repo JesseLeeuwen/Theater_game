@@ -48,7 +48,7 @@ function PlayerEquipment( positions )
     
 }
 
-function combat()
+function Combat()
 {
     this.Start =function()
     {

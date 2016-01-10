@@ -31,7 +31,7 @@ function Start()
     
     // Instantiate(bush, 30, 30, 20, 20, 1, 1, 45, 1, [new Movement(125)]);
     
-    Instantiate(undefined, 50, 91, 0, 0, 1,1,0, 0, [new PlayerEquipment(player), new Movement(125), new combat()]);
+    Instantiate(undefined, 50, 91, 0, 0, 1,1,0, 0, [new PlayerEquipment(player), new Movement(125), new Combat()]);
     
     timer = setTimeout(GameLoop, delay);
 } 
