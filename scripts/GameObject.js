@@ -61,7 +61,7 @@ function GameObject()
             
         if ( this.frames > 1 )    
             this.frame = (this.frame + 1) % this.frames;
-    }
+    };
     
     this.Draw = function( ctx )
     {              
@@ -92,5 +92,14 @@ function GameObject()
         }
         
         ctx.restore();
-    }
+    };
+    
+    this.DrawGUI = function(ctx)
+    {
+        for ( var i = 0; i < this.components.length; ++i )
+        {
+            if ( this.components[i].DrawGUI != undefined )
+                this.components[i].DrawGUI(ctx, this);           
+        }            
+    };
 }   

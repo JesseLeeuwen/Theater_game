@@ -47,3 +47,18 @@ function PlayerEquipment( positions )
     }
     
 }
+
+function combat()
+{
+    this.Start =function()
+    {
+        
+    };
+    
+    this.DrawGUI = function(ctx, object)
+    {
+        ctx.fillstyle = "#e33aaa";
+        ctx.fillRect(5, 5, 100, 10);
+    }
+    
+}

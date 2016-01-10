@@ -29,7 +29,7 @@ function Start()
     
     // Instantiate(bush, 30, 30, 20, 20, 1, 1, 45, 1, [new Movement(125)]);
     
-    Instantiate(undefined, 50, 91, 0, 0, 1,1,0, 0, [new PlayerEquipment(player), new Movement(125)]);
+    Instantiate(undefined, 50, 91, 0, 0, 1,1,0, 0, [new PlayerEquipment(player), new Movement(125), new combat()]);
     
     timer = setTimeout(GameLoop, delay);
 } 
@@ -49,8 +49,11 @@ function Draw()
     
     background.Draw(ctx);
     
-    for(var i=0; i < objectCount; ++i)
+    for ( var i=0; i < objectCount; ++i )
         objects[i].Draw(ctx);
+    
+    for ( var i=0; i < objectCount; ++i )
+        objects[i].DrawGUI(ctx);
     
     /*ctx.fillStyle = "#000000";
     ctx.beginPath();
