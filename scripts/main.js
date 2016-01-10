@@ -25,6 +25,8 @@ function Start()
     canvas.setAttribute('tabindex','0');
     canvas.focus();
     
+    loadResources();
+    
     background = new Stage();
     
     // Instantiate(bush, 30, 30, 20, 20, 1, 1, 45, 1, [new Movement(125)]);
