@@ -58,11 +58,24 @@ function GameObject()
     
     this.Draw = function( ctx )
     {        
+        for ( var i = 0; i < this.components.length; ++i )
+            this.components[i].Draw(ctx, this);
+        
         ctx.save();
         
         ctx.translate(this.x, this.y);
         ctx.rotate(this.rot * (Math.PI / 180))
-        ctx.drawImage(this.sprite, this.frame * this.width, 0, this.width, this.height, -this.width / 2, -this.height / 2, this.width, this.height);
+        ctx.drawImage(
+            this.sprite, 
+            this.frame * this.width, 
+            0, 
+            this.width, 
+            this.height, 
+            -this.centerX, 
+            -this.centerY, 
+            this.width * this.scaleX, 
+            this.height * this.scaleY
+        );
         
         ctx.restore();
     }

@@ -2,11 +2,16 @@
 <html>
 	<head>
         
+        <script src="scripts/movement.js"> </script>
+        <script src="scripts/GameObject.js"> </script>
         <script src="scripts/stage.js"></script>
         <script src="scripts/player.js"></script>
         <script src="scripts/enemy.js"></script>
+        <script src="scripts/main.js"> </script>
         
         <style>
+            *:focus{ outline: none; }
+                        
             canvas
             {
                 background-color: black;
@@ -24,55 +29,7 @@
         
 	</head>
     
-	<body style="margin: 0px;">
+	<body onload = "Init()" style="margin: 0px;">
 		<canvas id="canvas" width = "360px"; height = "240px"></canvas>
-        
-		<script>
-            
-            //game variables
-            var canvas = document.getElementById("canvas");
-            var ctx = canvas.getContext("2d");
-            ctx.imageSmoothingEnabled = false;
-            
-            //game objects
-            var background;
-            
-            //gameplay variables
-            
-                 
-            function Start()
-            {
-                setInterval(GameLoop, 1000/60);
-                
-                background = new Stage();
-            }   
-            
-            function Update()
-            {
-                background.Update()
-            } 
-            
-            function Draw()
-            {
-                ctx.fillStyle = "#FFFFFF";
-                ctx.fillRect(0, 0, canvas.width, canvas.height);
-                
-                background.Draw();
-                
-                /*ctx.fillStyle = "#000000";
-                ctx.beginPath();
-                ctx.arc(canvas.width * 0.5, canvas.height * 0.5, canvas.height * 0.4, 0, Math.PI, true);
-                ctx.closePath();
-                ctx.fill();*/
-            } 
-            
-            function GameLoop()
-            {
-                Update();
-                Draw();
-            }
-                        
-            window.onload = Start;
-        </script>
     </body>
 </html>
