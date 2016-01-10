@@ -36,8 +36,11 @@ function GameObject()
         
         this.components = components;
         
-        this.height = this.sprite.height;
-        this.width = this.sprite.width / this.frames;    
+        if ( this.sprite != undefined )
+        {
+            this.height = this.sprite.height;
+            this.width = this.sprite.width / this.frames;    
+        }
         
         for ( var i = 0; i < this.components.length; ++i )
             this.components[i].Start(this);           

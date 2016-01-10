@@ -24,9 +24,4 @@ function Movement(speed)
             object.y += speed * dt;
         }
     };
-    
-    this.Draw = function(ctx, object)
-    {        
-        ctx.fillRect(-object.centerX, -object.centerY, 40, 40);     
-    };
 }
