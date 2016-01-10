@@ -27,7 +27,7 @@ function Init()
     
     background = new Stage();
     
-    Instantiate(bush, 30,30, 0, 0, 1, 1, 0, 1, [new Movement(125)]);
+    Instantiate(bush, 30, 30, 20, 20, 1, 1, 45, 1, [new Movement(125)]);
     
     timer = setTimeout(GameLoop, delay);
 } 

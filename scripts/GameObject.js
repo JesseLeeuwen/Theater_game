@@ -21,7 +21,8 @@ function GameObject()
         this.y = y;
         this.centerX = centerX;
         this.centerY = centerY;
-        this.scaleX = scaleY;
+        this.scaleX = scaleX;
+        this.scaleY = scaleY;
                 
         while( Math.abs(rot) > 360 )
         {
@@ -50,7 +51,10 @@ function GameObject()
         }                
         
         for ( var i = 0; i < this.components.length; ++i )
-            this.components[i].Update(dt, this);    
+        {
+            if ( this.components[i].Update != undefined )
+                this.components[i].Update(dt, this);
+        }    
             
         if ( this.frames > 1 )    
             this.frame = (this.frame + 1) % this.frames;
@@ -59,7 +63,10 @@ function GameObject()
     this.Draw = function( ctx )
     {        
         for ( var i = 0; i < this.components.length; ++i )
-            this.components[i].Draw(ctx, this);
+        {
+            if ( this.components[i].Draw != undefined )
+                this.components[i].Draw(ctx, this);           
+        }
         
         ctx.save();
         
