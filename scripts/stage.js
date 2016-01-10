@@ -41,7 +41,7 @@ function Stage()
         this.time++;
     }
     
-    this.Draw = function()
+    this.Draw = function(ctx)
     {
         var rot = (Math.sin(this.time/100)*2)*Math.PI/180;
         var starScale = 0.05;
@@ -112,6 +112,5 @@ function Stage()
         ctx.scale(-1, 1);
         ctx.drawImage(this.curtain, -this.curtain.width*0.3, 0);
         ctx.restore();
-        console.log(rot);
     }
 }
