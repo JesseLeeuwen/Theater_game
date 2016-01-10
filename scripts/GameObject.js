@@ -61,28 +61,32 @@ function GameObject()
     }
     
     this.Draw = function( ctx )
-    {        
+    {              
+        ctx.save();
+        
+        ctx.translate(this.x, this.y);
+        ctx.rotate(this.rot * (Math.PI / 180))
+        
+        if ( this.sprite != undefined )        
+        {
+            ctx.drawImage(
+                this.sprite, 
+                this.frame * this.width, 
+                0, 
+                this.width, 
+                this.height, 
+                -this.centerX, 
+                -this.centerY, 
+                this.width * this.scaleX, 
+                this.height * this.scaleY
+            );
+        }
+        
         for ( var i = 0; i < this.components.length; ++i )
         {
             if ( this.components[i].Draw != undefined )
                 this.components[i].Draw(ctx, this);           
         }
-        
-        ctx.save();
-        
-        ctx.translate(this.x, this.y);
-        ctx.rotate(this.rot * (Math.PI / 180))
-        ctx.drawImage(
-            this.sprite, 
-            this.frame * this.width, 
-            0, 
-            this.width, 
-            this.height, 
-            -this.centerX, 
-            -this.centerY, 
-            this.width * this.scaleX, 
-            this.height * this.scaleY
-        );
         
         ctx.restore();
     }
