@@ -26,11 +26,7 @@ function Movement(speed)
     };
     
     this.Draw = function(ctx, object)
-    {
-        ctx.save();
-        ctx.translate(object.x, object.y);
-        ctx.rotate(object.rot * (Math.PI / 180))
-        ctx.fillRect(-object.centerX, -object.centerY, 40, 40);
-        ctx.restore();
+    {        
+        ctx.fillRect(-object.centerX, -object.centerY, 40, 40);     
     };
 }
