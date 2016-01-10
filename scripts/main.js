@@ -14,7 +14,7 @@ var background;
 var bush = new Image();
 bush.src = "sprites/bush.png";
 
-function Init()
+function Start()
 {
     canvas = document.getElementById("canvas");
     ctx = canvas.getContext("2d");
