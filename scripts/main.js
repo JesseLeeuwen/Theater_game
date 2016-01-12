@@ -14,6 +14,8 @@ var background;
 var bush = new Image();
 bush.src = "sprites/bush.png";
 
+var world;
+
 function Start()
 {
     canvas = document.getElementById("canvas");
@@ -26,10 +28,11 @@ function Start()
     canvas.focus();
     
     loadResources();
-    
+    world = new World();
+    world.Start();
     background = new Stage();
     
-    Instantiate(undefined, 50, 91, 0, 0, 1,1,0, 0, [new PlayerEquipment(player), new Movement(125), new Combat()]);
+    Instantiate(undefined, 50, 91, 0, 0, 1,1,0, 0, [new PlayerEquipment(player), new Combat()]);
     
     timer = setTimeout(GameLoop, delay);
 } 
@@ -37,6 +40,8 @@ function Start()
 function Update()
 {
     background.Update()
+    
+    world.Update(); // woerttel
     
     for(var i=0; i < objectCount; ++i)
         objects[i].Update(delay / 1000.0);       
@@ -48,12 +53,13 @@ function Draw()
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     
     background.Draw(ctx);
+    world.Draw(ctx);
     
-    for ( var i=0; i < objectCount; ++i )
-        objects[i].Draw(ctx);
+    //for ( var i=0; i < objectCount; ++i )
+        //objects[i].Draw(ctx);
     
-    for ( var i=0; i < objectCount; ++i )
-        objects[i].DrawGUI(ctx);
+    /*for ( var i=0; i < objectCount; ++i )
+        objects[i].DrawGUI(ctx);*/
 } 
 
 function GameLoop()
