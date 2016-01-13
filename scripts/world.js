@@ -31,9 +31,9 @@ function World()
     this.Draw = function(ctx)
     {                                          
         ctx.fillStyle = "#3F48CC";
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.fillRect(0, 0, canvas.width, canvas.height);               
         
-         ctx.save();
+        ctx.save();
         ctx.translate(canvas.width/2, canvas.height*0.9);
         ctx.rotate(background.time/20*Math.PI/180);
         ctx.drawImage(background.stars, -background.stars.width/2, -background.stars.height/2);
