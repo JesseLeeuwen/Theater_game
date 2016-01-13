@@ -1,5 +1,5 @@
 var timer;
-var delay = 1000.0 / 30.0;
+var delay = 1000.0 / 60.0;
 
 var objects = [];
 var objectCount = 0;
@@ -34,7 +34,7 @@ function Start()
     
     Instantiate(undefined, 50, 91, 0, 0, 1,1,0, 0, [new PlayerEquipment(player), new Combat()]);
     
-    timer = setTimeout(GameLoop, delay);
+    GameLoop();
 } 
 
 function Update()
@@ -55,17 +55,40 @@ function Draw()
     //background.Draw(ctx);
     world.Draw(ctx);
     
-    //for ( var i=0; i < objectCount; ++i )
-        //objects[i].Draw(ctx);
+    // Objects
+    for ( var i=0; i < objectCount; ++i )
+        objects[i].Draw(ctx);
     
-    /*for ( var i=0; i < objectCount; ++i )
-        objects[i].DrawGUI(ctx);*/
+    // curtains
+    ctx.drawImage(background.curtain, -background.curtain.width*0.3, 0);
+        
+    ctx.save();
+    ctx.translate(canvas.width, 0);
+    ctx.scale(-1, 1);
+    ctx.drawImage(background.curtain, -background.curtain.width*0.3, 0);
+    ctx.restore();
+    
+    // GUI
+    ctx.fillStyle = "#FFF";
+    for ( var i=0; i < objectCount; ++i )
+        objects[i].DrawGUI(ctx);
 } 
 
 function GameLoop()
 {
     if ( ResourcesReady() == false )
-    {
+    {        
+        ctx.fillStyle = "#FFF";
+        ctx.strokeStyle = "#888";
+        ctx.rect(canvas.width * 0.25, canvas.height * 0.5 - 20, canvas.width * 0.5, 30);
+        ctx.stroke();
+        ctx.fillRect(
+            canvas.width * 0.25 + 5, 
+            canvas.height * 0.5 - 15, 
+            (canvas.width * 0.5 - 10) * (readyAssets / (imageCount + soundCount)), 
+            20
+        );
+        
         timer = setTimeout(GameLoop, delay);
         return;
     }

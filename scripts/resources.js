@@ -2,12 +2,31 @@ var images = [];
 var imageCount = 0;
 var sounds = [];
 var soundCount = 0;
+var readyAssets = 0;
 
 function loadResources()
 {
-    loadImage( "trunk", "sprites/trunk.png" );
-    loadImage( "treeleaves", "sprites/treeleaves.png" );
-    loadImage( "treeleavesshadow", "sprites/treeleavesshadow.png");
+    LoadImage( "trunk" );
+    LoadImage( "trunkshadow" );
+    LoadImage( "darktrunk" );
+    LoadImage( "darktrunkshadow" );
+    
+    LoadImage( "treeleaves" );
+    LoadImage( "treeleavesshadow" );
+    LoadImage( "darktreeleaves" );
+    
+    LoadImage( "ground" );
+    LoadImage( "bush" );
+    LoadImage( "star" );
+    LoadImage( "star2" );
+    LoadImage( "stars" );
+    LoadImage( "planks" );
+    LoadImage( "stick" );
+    LoadImage( "rail" );  
+    LoadImage( "curtain" );
+    LoadImage( "tekstbalon" );
+    LoadImage( "coollettertype" );
+    LoadImage( "gradient" );   
 }
 
 function ResourcesReady()
@@ -23,17 +42,17 @@ function ResourcesReady()
     return true;
 }
 
-function loadImage(name, path)
+function LoadImage(name)
 {
     images[imageCount] = new Image();
-    images[imageCount].src = path;
+    images[imageCount].src = "sprites/" + name + ".png";
     images[imageCount].name = name;
     images[imageCount].ready = false;
-    images[imageCount].onload = resourceLoaded;
+    images[imageCount].onload = ResourceLoaded;
     imageCount++;    
 }
 
-function loadSound(name, path)
+function LoadSound(name, path)
 {
     
 }
@@ -56,8 +75,9 @@ function GetImage(name)
     }
 }
 
-function resourceLoaded()
+function ResourceLoaded()
 {
     console.log ("ready");
+    ++readyAssets;
     this.ready = true;
 }

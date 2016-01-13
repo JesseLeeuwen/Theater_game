@@ -22,10 +22,10 @@ function World()
     this.Update = function(dt)
     {
         if ( keys[37] == true && this.scrollX > 0)
-            this.scrollX -= 0.5;
+            this.scrollX -= 0.25;
             
         if ( keys[39] == true )
-            this.scrollX += 0.5;                       
+            this.scrollX += 0.25;                       
     };
     
     this.Draw = function(ctx)
@@ -38,14 +38,12 @@ function World()
         ctx.rotate(background.time/20*Math.PI/180);
         ctx.drawImage(background.stars, -background.stars.width/2, -background.stars.height/2);
         ctx.restore();
-        ctx.drawImage(background.gradient, 0, 0);
-        
-        ctx.fillStyle = "#888";
+        ctx.drawImage(background.gradient, 0, 0);              
         
         var trunk = GetImage("trunk");
         var leaves = GetImage("treeleaves");
         var leaveshadow = GetImage("treeleavesshadow");
-        var rot = (Math.sin(background.time/50)*2)*Math.PI/180;
+        var rot = (Math.sin(background.time/100)*2)*Math.PI/180;
         
         for ( var i = 0; i < this.entities.length; ++i )
         {
@@ -71,16 +69,8 @@ function World()
         }
                 
         // draw background
-        ctx.fillstyle = "#FFF";
-        
+        ctx.fillstyle = "#FFF";        
         ctx.drawImage(background.ground, canvas.width/2 - background.ground.width/2, canvas.height*0.9 - background.ground.height/2);
-        ctx.drawImage(background.rail, canvas.width/2 - background.rail.width/2, canvas.height - background.rail.height*0.6);        
-        ctx.drawImage(background.curtain, -background.curtain.width*0.3, 0);
-        
-        ctx.save();
-        ctx.translate(canvas.width, 0);
-        ctx.scale(-1, 1);
-        ctx.drawImage(background.curtain, -background.curtain.width*0.3, 0);
-        ctx.restore();
+        ctx.drawImage(background.rail, canvas.width/2 - background.rail.width/2, canvas.height - background.rail.height*0.6);                
     };
 }
