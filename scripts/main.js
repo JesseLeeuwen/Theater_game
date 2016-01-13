@@ -52,7 +52,7 @@ function Draw()
     ctx.fillStyle = "#FFFFFF";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     
-    background.Draw(ctx);
+    //background.Draw(ctx);
     world.Draw(ctx);
     
     //for ( var i=0; i < objectCount; ++i )
