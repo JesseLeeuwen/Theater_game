@@ -5,7 +5,22 @@ var soundCount = 0;
 
 function loadResources()
 {
-    loadImage( "arm", "sprites/arm.png" );
+    loadImage( "trunk", "sprites/trunk.png" );
+    loadImage( "treeleaves", "sprites/treeleaves.png" );
+    loadImage( "treeleavesshadow", "sprites/treeleavesshadow.png");
+}
+
+function ResourcesReady()
+{
+    for ( var i = 0; i < images.length; ++i )
+        if ( images[i].ready == false )
+            return false;
+  
+    for ( var i = 0; i < sounds.length; ++i )
+        if ( sounds[i].ready == false )
+            return false;
+            
+    return true;
 }
 
 function loadImage(name, path)

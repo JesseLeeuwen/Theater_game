@@ -1,5 +1,5 @@
 var timer;
-var delay = 1000.0 / 60.0;
+var delay = 1000.0 / 30.0;
 
 var objects = [];
 var objectCount = 0;
@@ -38,7 +38,7 @@ function Start()
 } 
 
 function Update()
-{
+{   
     background.Update()
     
     world.Update(); // woerttel
@@ -64,6 +64,12 @@ function Draw()
 
 function GameLoop()
 {
+    if ( ResourcesReady() == false )
+    {
+        timer = setTimeout(GameLoop, delay);
+        return;
+    }
+    
     Update();
     Draw();
     
