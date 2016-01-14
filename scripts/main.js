@@ -14,6 +14,8 @@ var background;
 var bush = new Image();
 bush.src = "sprites/bush.png";
 
+var enemy;
+
 function Start()
 {
     canvas = document.getElementById("canvas");
@@ -32,6 +34,7 @@ function Start()
     Instantiate(undefined, 50, 91, 0, 0, 1,1,0, 0, [new PlayerEquipment(player), new Movement(125), new Combat()]);
     
     timer = setTimeout(GameLoop, delay);
+    enemy = new Enemy();
 } 
 
 function Update()
@@ -40,6 +43,7 @@ function Update()
     
     for(var i=0; i < objectCount; ++i)
         objects[i].Update(delay / 1000.0);       
+    enemy.Update();
 } 
 
 function Draw()
@@ -54,6 +58,7 @@ function Draw()
     
     for ( var i=0; i < objectCount; ++i )
         objects[i].DrawGUI(ctx);
+    enemy.Draw();
 } 
 
 function GameLoop()

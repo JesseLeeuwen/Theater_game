@@ -38,6 +38,20 @@ function Stage()
     this.font.src = "sprites/coollettertype.png";
     this.gradient = new Image();
     this.gradient.src = "sprites/gradient.png";
+    this.gradient = new Image();
+    this.gradient.src = "sprites/gradient.png";
+    this.body = new Image();
+    this.body.src = "sprites/body.png";
+    this.shoulder = new Image();
+    this.shoulder.src = "sprites/shoulder.png";
+    this.crab = new Image();
+    this.crab.src = "sprites/crab.png";
+    this.playerx = canvas.width/2;
+    this.playery = canvas.height/2;
+    this.bodyx = 0;
+    this.bodyy = 0;
+    this.shoulderx = 0;
+    this.shouldery = 0;
 
     this.treeLeavesx = 0;
     this.treeLeavesy = 0;
@@ -144,6 +158,21 @@ function Stage()
         ctx.drawImage(this.treeLeaves, -this.treeLeaves.width/2, -this.treeLeaves.height*0.5);
         ctx.restore();
         
+        //draw player
+        //ctx.drawImage(this.crab, canvas.width*0.75-this.crab.width/2, canvas.height*0.6-this.crab.height/2);
+        /*ctx.save();
+        this.playerx = canvas.width/2+Math.sin(this.time/50)*4;
+        this.playery = canvas.height/2+Math.cos(this.time/20)*3;
+        //ctx.translate(this.playerx, this.playery);
+        this.bodyx = (1-0.23)*this.bodyx+0.23*this.playerx;
+        this.bodyy = (1-0.23)*this.bodyy+0.23*this.playery;
+        console.log(this.bodyx + " " + this.bodyy);
+        ctx.drawImage(this.body, this.bodyx-this.body.width/2, this.bodyy-this.body.height/2);
+        this.shoulderx = (1-0.23)*this.shoulderx+0.23*this.bodyx;
+        this.shouldery = (1-0.23)*this.shouldery+0.23*this.bodyy;
+        ctx.drawImage(this.shoulder, this.shoulderx, this.shouldery);
+        ctx.restore();*/
+        
         //draw floor
         ctx.drawImage(this.ground, canvas.width/2 - this.ground.width/2, canvas.height*0.9 - this.ground.height/2);
         ctx.drawImage(this.rail, canvas.width/2 - this.rail.width/2, canvas.height - this.rail.height*0.6);
@@ -159,7 +188,7 @@ function Stage()
         ctx.drawImage(this.curtain, -this.curtain.width*0.3, 0);
         ctx.restore();
         
-        var s = "i have lost the script";
+        var s = "yo check dit";
 		for(var i = 0; i < s.length; i++)
 		{
 			ctx.drawImage(this.font, (s.charCodeAt(i)-97)*24, 0, 24, 24, canvas.width/2+(i*12)-(s.length/2*12)+Math.cos((this.time/50)*2+i), canvas.height-28+Math.sin((this.time/50)*2+i), 24, 24);
