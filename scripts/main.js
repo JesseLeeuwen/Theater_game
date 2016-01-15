@@ -17,6 +17,9 @@ bush.src = "sprites/bush.png";
 var enemy;
 var world;
 
+var mouseX = 0;
+var mouseY = 0;
+
 function Start()
 {
     canvas = document.getElementById("canvas");
@@ -25,6 +28,7 @@ function Start()
     
     canvas.addEventListener('keyup', keyUpListener,false);
     canvas.addEventListener('keydown', keyDownListener,false);     
+    canvas.addEventListener('mousemove', mouseListener,false);
     canvas.setAttribute('tabindex','0');
     canvas.focus();
     
@@ -118,4 +122,10 @@ function keyDownListener(e)
 function keyUpListener(e)
 {
     keys[e.keyCode] = false;
+}
+
+function mouseListener(e)
+{
+    mouseX = e.clientX - canvas.offsetLeft;
+    mouseY = e.clientY - canvas.offsetTop;
 }

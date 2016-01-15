@@ -22,10 +22,10 @@ function World()
     this.Update = function(dt)
     {
         if ( keys[37] == true && this.scrollX > 0)
-            this.scrollX -= 25;
+            this.scrollX -= 0.25;
             
         if ( keys[39] == true )
-            this.scrollX += 25;                       
+            this.scrollX += 0.25;                       
     };
     
     this.Draw = function(ctx)
